@@ -10,5 +10,6 @@ Fake News Classifier:
 
 Word Embeddings:
 -------------------------
-1. https://ruder.io/word-embeddings-1/
-2. https://cs224d.stanford.edu/lecture_notes/notes1.pdf
+1. word2vec - https://www.youtube.com/watch?v=thLzt3D-A10
+2. glove - https://www.youtube.com/watch?v=Y8gKX5zMRyQ
+
