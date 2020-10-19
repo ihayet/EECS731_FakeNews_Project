@@ -1,0 +1,14 @@
+Text Preprocessing:
+-------------------------
+1. https://machinelearningmastery.com/clean-text-machine-learning-python/
+
+Fake News Classifier:
+-----------------------------
+1. Part 1 - https://www.youtube.com/watch?v=MO5n5JaRotc
+2. Part 2 - https://www.youtube.com/watch?v=E9gVleivB6M
+3. Part 3 - https://www.youtube.com/watch?v=MXPh_lMRwAI
+
+Word Embeddings:
+-------------------------
+1. https://ruder.io/word-embeddings-1/
+2. https://cs224d.stanford.edu/lecture_notes/notes1.pdf
