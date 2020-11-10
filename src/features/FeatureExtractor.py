@@ -116,11 +116,11 @@ class Extractor:
         return frame
 
     def extractionFunction(self, frame):
-        # try:
-        frame = self.titleFeatures(frame)
-        frame = self.textFeatures(frame)
-        # except:
-        #     print('Unexpected error:', sys.exc_info()[0]) 
+        try:
+            frame = self.titleFeatures(frame)
+            frame = self.textFeatures(frame)
+        except:
+            print('Unexpected error:', sys.exc_info()[0]) 
 
         return frame
 
