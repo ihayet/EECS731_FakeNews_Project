@@ -116,12 +116,9 @@ class Extractor:
         return frame
 
     def extractionFunction(self, frame):
-        try:
-            frame = self.titleFeatures(frame)
-            frame = self.textFeatures(frame)
-        except:
-            print('Unexpected error:', sys.exc_info()[0]) 
-
+        frame = self.titleFeatures(frame)
+        frame = self.textFeatures(frame)
+        
         return frame
 
     def extractFeatures(self):
@@ -130,26 +127,30 @@ class Extractor:
         return self.data
 
     def writeToCSV(self, out_path):
-        try:
-            self.data.to_csv(out_path)
-        except:
-            print('Unexpected error:', sys.exc_info()[0])
+        cols = ['id', 'n_tokens_title', 'n_tokens_content', 'n_unique_tokens', 'n_non_stop_words', 'n_non_stop_unique_tokens', 
+                'average_token_length', 'global_subjectivity', 'global_sentiment_polarity', 'global_rate_positive_words',
+                'global_rate_negative_words', 'rate_positive_words', 'rate_negative_words', 'avg_positive_polarity',
+                'min_positive_polarity', 'max_positive_polarity', 'avg_negative_polarity', 'min_negative_polarity',
+                'max_negative_polarity', 'title_subjectivity',
+                'title_sentiment_polarity']
+
+        self.data.to_csv(out_path, columns=cols, header=cols, index=False, encoding='utf-8', line_terminator='\n')
     
     def display(self):
         print(data[0:50])
 
 #---------------------------------------------------------------------------------------------------------------------------------------
 
-dataTrain = pd.read_csv('../data/Kaggle/fake-news/train.csv')
-dataTest = pd.read_csv('../data/Kaggle/fake-news/test.csv')
-dataLabel = pd.read_csv('../data/Kaggle/fake-news/submit.csv')
+dataTrain = pd.read_csv('../../data/external/Kaggle/fake-news/train.csv')
+dataTest = pd.read_csv('../../data/external/Kaggle/fake-news/test.csv')
+dataLabel = pd.read_csv('../../data/external/Kaggle/fake-news/submit.csv')
 
 dataTest = dataTest.merge(dataLabel, on=['id'], how='inner')
 
-extTrain = Extractor(dataTrain)
-extTrain.extractFeatures()
-extTrain.writeToCSV('../data/Kaggle/kaggle_features1.csv')
+# extTrain = Extractor(dataTrain)
+# extTrain.extractFeatures()
+# extTrain.writeToCSV('../../data/processed/kaggle_features/kaggle_features1.csv')
 
 extTest = Extractor(dataTest)
 extTest.extractFeatures()
-extTest.writeToCSV('../data/Kaggle/kaggle_features2.csv')
+extTest.writeToCSV('../../data/processed/kaggle_features/kaggle_features2.csv')
