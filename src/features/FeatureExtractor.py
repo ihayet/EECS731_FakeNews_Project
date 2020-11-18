@@ -147,9 +147,9 @@ dataLabel = pd.read_csv('../../data/external/Kaggle/fake-news/submit.csv')
 
 dataTest = dataTest.merge(dataLabel, on=['id'], how='inner')
 
-# extTrain = Extractor(dataTrain)
-# extTrain.extractFeatures()
-# extTrain.writeToCSV('../../data/processed/kaggle_features/kaggle_features1.csv')
+extTrain = Extractor(dataTrain)
+extTrain.extractFeatures()
+extTrain.writeToCSV('../../data/processed/kaggle_features/kaggle_features1.csv')
 
 extTest = Extractor(dataTest)
 extTest.extractFeatures()
