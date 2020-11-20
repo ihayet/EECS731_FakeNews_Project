@@ -17,7 +17,7 @@ class Extractor:
 
     def __init__(self, data):
         self.data = data
-        self.dataNew = pd.DataFrame(index = data.index)
+        self.data = self.data.dropna()
 
     def removeSpecialCharacters(self, content):
         return re.sub('[^a-zA-z0-9]+', ' ', str(content))
