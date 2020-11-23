@@ -105,8 +105,8 @@ class Extractor:
 
             if len(text) == 1:
                 frame['average_token_length'] = len(text[0])
-            elif len(text) > 1:
-                frame['average_token_length'] = np.log(reduce(lambda x, y: (float(x) + float(y)), list(map(lambda x: len(x), text)))/total_tokens)
+            else:
+                frame['average_token_length'] = np.log(reduce(lambda x, y: (float(x) + float(y)), list(map(lambda x: len(x), text))))
             
             frame['n_unique_tokens'] = len(set(text))/total_tokens
             text = self.removeStopWords(text)
